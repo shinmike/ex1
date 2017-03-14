@@ -2,9 +2,9 @@ var https = require('https');
 
 function getHTML (options, callback) {
 
-  var space = [];
+  https.get(options, function (response) {
 
-  https.get(requestOptions, function (response) {
+    var space = [];
 
     response.setEncoding('utf8');
 
@@ -16,7 +16,7 @@ function getHTML (options, callback) {
       callback(space.join(""));
     });
 
-}); return getHTML;
+  });
 
 };
 
