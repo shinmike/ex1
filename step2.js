@@ -7,7 +7,7 @@ function getAndPrintHTML () {
     path: '/http-examples/step2.html'
   };
 
-  var space = "";
+  var output = "";
 
   https.get(requestOptions, function (response) {
 
@@ -15,8 +15,8 @@ function getAndPrintHTML () {
 
     response.on('data', function (data) {
       console.log('Chunk Received. Length:', data.length);
-      space += data;
-      console.log(space);
+      output += data;
+      console.log(output);
     });
 
     response.on('end', function() {
@@ -25,7 +25,7 @@ function getAndPrintHTML () {
 
   });
 
-  return space;
+  // return space;
 
 }
 
