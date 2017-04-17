@@ -2,16 +2,16 @@ function getAndPrintHTML(options) {
 
   var https = require('https');
 
-  var output = [];
+  var output = "";
 
   https.get(options, function (response) {
 
     response.setEncoding('utf8');
 
     response.on('data', function (data) {
-      output.push(data);
+      output += data;
       // console.log can be done here or end
-      console.log(output.join(""));
+      console.log(output);
     });
 
     response.on('end', function() {
