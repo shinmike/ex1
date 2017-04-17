@@ -1,5 +1,6 @@
 var https = require('https');
 
+//Second Step within the program    -     2nd Step
 function getHTML (options, callback) {
 
   https.get(options, function (response) {
@@ -29,4 +30,5 @@ var requestOptions = {
   path: '/http-examples/step4.html'
 };
 
+//This is the start of the Program    1st Step
 getHTML(requestOptions, printHTML);
