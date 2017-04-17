@@ -1,30 +1,32 @@
 function getAndPrintHTML () {
 
+  var https = require('https');
+
   var requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html'
   };
 
-  var https = require('https');
-
-  var space = [];
+  var space = "";
 
   https.get(requestOptions, function (response) {
 
     response.setEncoding('utf8');
 
     response.on('data', function (data) {
-      space.push(data);
-      console.log(space.join(""));
-// console.log can be done here or end
+      console.log('Chunk Received. Length:', data.length);
+      space += data;
+      console.log(space);
     });
 
     response.on('end', function() {
-// console.log(space.join(""))
+      console.log('Response stream complete.');
     });
 
-}); return getAndPrintHTML;
+  });
 
-};
+  return space;
+
+}
 
 getAndPrintHTML();
