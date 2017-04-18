@@ -1,4 +1,4 @@
-var getHTML = require('./step5-req.js');
+var getHTML = require('../step5-req.js');
 
 var requestOptions = {
   host: 'sytantris.github.io',
