@@ -1,20 +1,22 @@
 module.exports = function getHTML (options, callback) {
 
-var https = require('https');
+  var https = require('https');
 
-https.get(options, function (response) {
+  var output = "";
 
-    var space = [];
+  https.get(options, function (response) {
 
-    response.setEncoding('utf8');
+      response.setEncoding('utf8');
 
-    response.on('data', function (data) {
-      space.push(data);
-    });
+      response.on('data', function (data) {
+        console.log("received data...");
+        output += data;
+        callback(output);
+      });
 
-    response.on('end', function() {
-      callback(space.join(""));
-    });
+      response.on('end', function() {
+        console.log("response complete...");
+      });
 
   });
 
