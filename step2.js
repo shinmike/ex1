@@ -25,7 +25,7 @@ function getAndPrintHTML () {
 
   });
 
-  // return space;
+  return output;
 
 }
 
