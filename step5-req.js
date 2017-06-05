@@ -9,7 +9,7 @@ module.exports = function getHTML (options, callback) {
       response.setEncoding('utf8');
 
       response.on('data', function (data) {
-        console.log("received data...");
+        console.log("received data in chunk!!!!!!");
         output += data;
         callback(output);
       });
