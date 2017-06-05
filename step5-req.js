@@ -20,4 +20,6 @@ module.exports = function getHTML (options, callback) {
 
   });
 
+  return output;
+
 };

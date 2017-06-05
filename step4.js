@@ -3,17 +3,15 @@ function getHTML (options, callback) {
 
   var https = require('https');
 
-  var space = "";
+  var output = "";
 
   https.get(options, function (response) {
 
     response.setEncoding('utf8');
 
     response.on('data', function (data) {
-      space += data;
-      // printHTML function called and space string is the parameter 'html'
-      // and console.logs this
-      callback(space);
+      output += data;
+      callback(output);
     });
 
     response.on('end', function() {
@@ -22,15 +20,17 @@ function getHTML (options, callback) {
 
   });
 
+  return output;
+
 }
 
-// this is the 'options'
+// this is the 'options' parameter
 var requestOptions = {
   host: 'sytantris.github.io',
   path: '/http-examples/step4.html'
 };
 
-// this is the 'callback' function
+// this is the 'callback' (function) parameter
 function printHTML (html) {
   console.log(html);
 }

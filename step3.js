@@ -10,14 +10,15 @@ function getAndPrintHTML(options) {
 
     response.on('data', function (data) {
       output += data;
-      // console.log can be done here or end
       console.log(output);
     });
 
     response.on('end', function() {
     });
+
   });
-// return output;
+
+  return output;
 }
 
 var requestOptions = {
